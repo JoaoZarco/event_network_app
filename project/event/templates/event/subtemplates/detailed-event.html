@@ -1,0 +1,47 @@
+<article class="content-section media">
+  <div class="media-body">
+    <div class="article-details">
+
+      <div class="article-details-metadata" )>
+        <h6>
+          <span class='pr-2'>
+            <span class="font-weight-bold">{{ event.author }}</span>
+          </span>
+          <span class="font-weight-light">{{ event.date }}</span>
+        </h6>
+      </div>
+      
+      <div class="article-details-icons" )>
+        <div >
+          {% if event.state == 'PRI' %}
+          <i class="fas fa-lock fa-lg"></i>
+          {% elif event.state == 'PUB' %}
+          <i class="fas fa-lock-open fa-lg"></i>
+          {% elif event.state == 'D' %}
+          <i class="fas fa-file fa-lg"></i>
+          {% endif %}
+        </div>
+
+        {% if is_subscribed %}
+        <div class='pr-2'>
+            <i class="far fa-check-square fa-lg"></i>
+        </div>
+        {% endif %}
+        
+        {% if is_editable %}
+        <div class='pr-3'>
+          <a href="{% url 'event-update' event.id %}">
+            <i class="fas fa-edit fa-lg action-icons"></i>
+          </a>
+        </div>
+        {% endif %}
+      
+      </div>
+
+    </div>
+    <div class='pt-1'>
+      <h2>{{ event.title }}</h2>
+      <p class="article-content">{{ event.description }}</p>
+    </div>
+  </div>
+</article>

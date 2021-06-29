@@ -1,0 +1,16 @@
+<article class="content-section media">
+    <div class="media-body">
+        <div class="article-details">
+            <h6>
+                <span class='pr-2'>
+                    <span class="font-weight-bold">{{ event.author }}</span>
+                </span>
+                <span class="font-weight-light">{{ event.date }}</span>
+            </h6>
+        </div>
+        <div class='pt-1'>
+            <h2><a class="article-title" href="{% url 'event-detail' event.id %}">{{ event.title }}</a></h2>
+            <p class="article-content">{{ event.description }}</p>
+        </div>
+    </div>
+</article>

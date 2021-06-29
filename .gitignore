@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+#env
+venv
+
+#vscode
+.vscode
+
+#database
+migrations/
+db.sqlite3
+
+#Language
+django.po
+
+#browser driver
+driver.exe

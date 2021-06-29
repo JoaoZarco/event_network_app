@@ -1,0 +1,1 @@
+In order to run selanium put appropriate driver in this folder (use the filename driver.exe)

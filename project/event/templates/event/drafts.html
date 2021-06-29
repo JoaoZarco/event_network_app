@@ -1,0 +1,9 @@
+{% extends "event/base.html" %}
+{% load i18n %}
+{% block content %}
+    {% for event in events %}
+        {% include 'event/subtemplates/basic-event.html' %}
+    {% empty %}
+        <h2>{% trans 'You have no drafts...' %}</h2>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "event/base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block content %}
+<div>
+  {% include 'event/subtemplates/detailed-event.html' %}
+  {% if user.is_authenticated and is_subscribable %}
+    <div class='content-section'>
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend class='border-bottom mb-4'>{% trans 'Subscribe to this event' %}</legend>
+          {{ form|crispy }}
+          <input type='hidden' name='event_id' value='{{event.id}}' />
+        </fieldset>
+        <div class="form-group">
+          <button class='btn btn-outline-info' type='submit'>{% trans 'Subscribe' %}</button>
+        </div>
+      </form>
+    </div>
+  {% endif %}
+</div>
+{% endblock content %}
